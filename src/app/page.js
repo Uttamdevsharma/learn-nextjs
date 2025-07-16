@@ -13,7 +13,7 @@ export default async function Home() {
       <h2>Welcome to my Website</h2>
 
       <ul>
-        {posts.map((post) = (
+        {posts.map((post) => (
           <li key={post.id}>{post.title} </li>
         ))}
       </ul>
