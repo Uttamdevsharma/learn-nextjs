@@ -1,10 +1,22 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default async function Home() {
+
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts?_limit=5`,
+  );
+
+  const posts = await res.json();
   return (
     <div>
-      <h2>Hello Next.js</h2>
+      <h2>Welcome to my Website</h2>
+
+      <ul>
+        {posts.map((post) = (
+          <li key={post.id}>{post.title} </li>
+        ))}
+      </ul>
     </div>
   );
 }
