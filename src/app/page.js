@@ -4,7 +4,7 @@ import styles from "./page.module.css";
 export default function Home() {
   return (
     <div>
-      <h2>Hello Next</h2>
+      <h2>Hello Next.js</h2>
     </div>
   );
 }
