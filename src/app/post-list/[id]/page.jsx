@@ -1,19 +1,28 @@
 import React from 'react'
 
-const PostDetails = () => {
+const PostDetails = async({params}) => {
+  const {id} = await params;
+
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts/${id}`
+  );
+  const post = await res.json();
   return (
-    <div>PostDetails</div>
+    <div>
+        <h2>Post Details of Post - {id}</h2>
+        <p>post title - {post.title}</p>
+    </div>
   )
 }
 
 export async function generateStaticParams(){
-    const posts = await fetch(
+    const res = await fetch(
         `https://jsonplaceholder.typicode.com/posts?_limit=5`,
     );
     const posts = await res.json();
 
     return posts.map((post) => ({
-        id:post.id,
+        id:String(post.id),
     }))
 
 }
