@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-
+import Counter from "./components/Counter";
 export default async function Home() {
 
   const res = await fetch(
@@ -17,6 +17,10 @@ export default async function Home() {
           <li key={post.id}>{post.title} </li>
         ))}
       </ul>
+
+      <hr/>
+
+      <Counter/>
     </div>
   );
 }
